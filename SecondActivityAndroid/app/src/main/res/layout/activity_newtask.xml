@@ -68,11 +68,20 @@
         android:id="@+id/clearContent" />
 
     <TextView
-        android:text="TextView"
+        android:text="Select Date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/textViewDate"
         android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textViewDate" />
+        android:layout_alignParentStart="true" />
+
+    <RadioButton
+        android:text="Done?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:id="@+id/radioButton"
+        android:layout_below="@+id/textViewDate"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

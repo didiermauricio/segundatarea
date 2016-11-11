@@ -1,5 +1,4 @@
 package com.example.didier.secondactivityandroid;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.sqlitedemoo.R;
-
 public class NewTaskActivity extends Activity implements OnClickListener {
 	EditText et;
 	Button add_bt, read_bt;
 	SQLController dbcon;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -22,7 +19,6 @@ public class NewTaskActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_newtask);
 		et = (EditText) findViewById(R.id.taskTitle);
 		add_bt = (Button) findViewById(R.id.saveTask);
-
 		dbcon = new SQLController(this);
 		dbcon.open();
 		add_bt.setOnClickListener(this);
@@ -42,7 +38,6 @@ public class NewTaskActivity extends Activity implements OnClickListener {
 					.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(main);
 			break;
-
 		default:
 			break;
 		}
