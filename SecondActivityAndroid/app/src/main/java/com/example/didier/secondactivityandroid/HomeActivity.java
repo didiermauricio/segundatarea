@@ -17,7 +17,7 @@ public class HomeActivity extends Activity {
     Button addmem_bt;
     ListView lv;
     SQLController dbcon;
-    TextView memID_tv, memName_tv;
+    TextView memID_tv, memName_tv, desc_tv, date_tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +34,8 @@ public class HomeActivity extends Activity {
             }
         });
         Cursor cursor = dbcon.readData();
-        String[] from = new String[] { DBhelper.MEMBER_ID, DBhelper.MEMBER_NAME };
-        int[] to = new int[] { R.id.Task_id, R.id.Title_name };
+        String[] from = new String[] { DBhelper.MEMBER_ID, DBhelper.MEMBER_NAME};
+        int[] to = new int[] { R.id.Task_id, R.id.Title_name};
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
         HomeActivity.this, R.layout.view_task_sumary, cursor, from, to);
         adapter.notifyDataSetChanged();
@@ -46,12 +46,18 @@ public class HomeActivity extends Activity {
                                     int position, long id) {
                 memID_tv = (TextView) view.findViewById(R.id.Task_id);
                 memName_tv = (TextView) view.findViewById(R.id.Title_name);
+                /*v = (TextView) view.findViewById(R.id.task_Description);
+                date_tv = (TextView) view.findViewById(R.id.task_Date);*/
                 String memberID_val = memID_tv.getText().toString();
                 String memberName_val = memName_tv.getText().toString();
+                /*String desc_val = desc_tv.getText().toString();
+                String date_val = date_tv.getText().toString();*/
                 Intent modify_intent = new Intent(getApplicationContext(),
                         ModifyTask.class);
                 modify_intent.putExtra("memberName", memberName_val);
                 modify_intent.putExtra("memberID", memberID_val);
+                /*modify_intent.putExtra("memberDesc", desc_val);
+                modify_intent.putExtra("memberID", date_val);*/
                 startActivity(modify_intent);
             }
         });
